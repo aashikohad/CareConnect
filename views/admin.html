@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthCare Admin Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+  * {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  body {
+    margin: 0;
+    background: #f0f8ff;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  header {
+    background-color: #4A90E2;
+    padding: 20px 30px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: bold;
+  }
+  nav {
+    display: flex;
+    gap: 25px;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+  .container {
+    display: flex;
+    padding: 30px 40px;
+  }
+  aside {
+    width: 240px;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    height: fit-content;
+  }
+  aside h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #4A90E2;
+  }
+  aside a {
+    display: block;
+    margin: 12px 0;
+    text-decoration: none;
+    color: #333;
+    padding: 8px;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+  }
+  aside a:hover {
+    background: #4A90E2;
+    color: white;
+  }
+  main {
+    flex: 1;
+    margin-left: 30px;
+  }
+  .cards {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+  .card {
+    flex: 1;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+  }
+  .card p {
+    font-size: 30px;
+    margin: 12px 0 0;
+    color: #4A90E2;
+    font-weight: bold;
+  }
+  .card:hover {
+    transform: translateY(-10px); /* Card pop-up effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Deeper shadow for pop-up effect */
+  }
+  .activity {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  .activity h3 {
+    margin-top: 0;
+    font-size: 22px;
+    color: #4A90E2;
+  }
+  .activity ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .activity li {
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+  .activity li:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+  .activity li:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+  .activity li:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+  .activity li:nth-child(4) {
+    animation-delay: 0.8s;
+  }
+  footer {
+    background-color: #4A90E2;
+    color: white;
+    text-align: center;
+    padding: 18px;
+    margin-top: 40px;
+    font-size: 14px;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      padding: 20px;
+    }
+    aside {
+      margin-bottom: 20px;
+    }
+    .cards {
+      flex-direction: column;
+    }
+  }
+</style>   
+  
+</head>
+<body>
+
+<header>
+  <h1>HealthCare Admin</h1>
+  <nav>
+    <a href="#"><i class="fas fa-chart-line"></i> Dashboard</a>
+    <a href="#"><i class="fas fa-user"></i> Profile</a>
+    <a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  </nav>
+</header>
+
+<div class="container">
+  <aside>
+    <h2>Navigation</h2>
+    <a href="#">Manage Patients</a>
+    <a href="#">Manage Doctors</a>
+    <a href="#">Appointments</a>
+    <a href="#">Medical Reports</a>
+    <a href="#">Settings</a>
+  </aside>
+
+  <main>
+    <div class="cards">
+      <div class="card">
+        <h3>Patients</h3>
+        <p>1280</p>
+      </div>
+      <div class="card">
+        <h3>Doctors</h3>
+        <p>245</p>
+      </div>
+      <div class="card">
+        <h3>Appointments Today</h3>
+        <p>56</p>
+      </div>
+    </div>
+
+    <div class="activity">
+      <h3>Recent Activity</h3>
+      <ul>
+        <li>New patient registered: Manoj Kumar</li>
+        <li>Dr. Shingh added a report for Patient #1032</li>
+        <li>Appointment scheduled with Dr.shreekumar at 3:00 PM</li>
+        <li>System backup completed successfully</li>
+      </ul>
+    </div>
+  </main>
+</div>
+
+<footer>
+  &copy; 2025 HealthCare System | Admin Panel
+</footer>
+
+</body>
+</html>

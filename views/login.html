@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | Health Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #f7fbff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      width: 900px;
+      max-width: 95%;
+    }
+
+    .left, .right {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .left {
+      border-right: 1px solid #eee;
+    }
+
+    h2 {
+      color: #222;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .underline {
+      width: 40px;
+      height: 3px;
+      background-color: #f9a825;
+      margin: 10px 0;
+    }
+
+    button {
+        background-color: #8bd6ef; /* Soft Blue */
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #87ceeb; /* Slightly darker blue for hover effect */
+    }
+    
+
+    select, input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 13px;
+      color: #777;
+      margin-top: 20px;
+    }
+
+    .footer a {
+      color: #007bff;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Left Side - New User -->
+    <div class="left">
+      <h2>NEW USER</h2>
+      <div class="underline"></div>
+      <p>Don't have an account yet?</p>
+      <button>Sign up</button>
+    </div>
+
+    <!-- Right Side - Existing User -->
+    <div class="right">
+      <h2>EXISTING USER</h2>
+      <div class="underline"></div>
+      <p>Login to your account</p>
+
+      <select id="role-select">
+        <option value="">Select Role</option>
+        <option value="doctor">Doctor</option>
+        <option value="patient">Patient</option>
+      </select>
+
+      <input type="text" id="email" placeholder="Email" />
+      <input type="password" id="password" placeholder="Password" />
+      <button id="login-btn">Login</button>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+      const page = window.location.pathname.split("/").pop();
+
+      // Redirect from login to signup
+      const signupBtn = document.querySelector(".left button");
+      if (signupBtn) {
+        signupBtn.addEventListener("click", () => {
+          window.location.href = "signup.html";
+        });
+      }
+
+      // Login functionality
+      const loginBtn = document.getElementById("login-btn");
+      const roleSelect = document.getElementById("role-select");
+
+      loginBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        const role = roleSelect.value;
+        if (role === "doctor") {
+          // Redirect to admin (doctor) page
+          window.location.href = "admin.html";
+        } else if (role === "patient") {
+          // Redirect to user interface (patient) page
+          window.location.href = "userinterface.html";
+        } else {
+          alert("Please select a role.");
+        }
+      });
+
+      // Page-specific functions
+      if (page === "signup.html") {
+        initSignupForm();
+      }
+
+      if (page === "login.html") {
+        initLogin();
+      }
+    });
+
+    function initSignupForm() {
+      const form = document.getElementById("signup-form");
+      const usernameInput = document.getElementById("username");
+      const emailInput = document.getElementById("email");
+      const passwordInput = document.getElementById("password");
+      const usernameError = document.getElementById("username-error");
+      const emailError = document.getElementById("email-error");
+      const passwordError = document.getElementById("password-error");
+
+      function validateUsername() {
+        if (usernameInput.value.trim() === '') {
+          showError(usernameError, "Username is required");
+          return false;
+        } else if (usernameInput.value.trim().length < 3) {
+          showError(usernameError, "Username must be at least 3 characters");
+          return false;
+        } else {
+          hideError(usernameError);
+          return true;
+        }
+      }
+
+      function validateEmail() {
+        const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+        if (emailInput.value.trim() === '') {
+          showError(emailError, "Email is required");
+          return false;
+        } else if (!emailRegex.test(emailInput.value.trim())) {
+          showError(emailError, "Invalid email format");
+          return false;
+        } else {
+          hideError(emailError);
+          return true;
+        }
+      }
+
+      function validatePassword() {
+        if (passwordInput.value.trim() === '') {
+          showError(passwordError, "Password is required");
+          return false;
+        } else if (passwordInput.value.trim().length < 8) {
+          showError(passwordError, "Password must be at least 8 characters long");
+          return false;
+        } else {
+          hideError(passwordError);
+          return true;
+        }
+      }
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const isUsernameValid = validateUsername();
+        const isEmailValid = validateEmail();
+        const isPasswordValid = validatePassword();
+
+        if (isUsernameValid && isEmailValid && isPasswordValid) {
+          alert("Sign up successful!");
+          form.reset();
+          window.location.href = "login.html";
+        }
+      });
+
+      usernameInput.addEventListener("blur", validateUsername);
+      emailInput.addEventListener("blur", validateEmail);
+      passwordInput.addEventListener("blur", validatePassword);
+    }
+
+    function showError(el, message) {
+      if (el) {
+        el.textContent = message;
+        el.style.display = "block";
+      }
+    }
+
+    function hideError(el) {
+      if (el) {
+        el.style.display = "none";
+      }
+    }
+
+    function initLogin() {
+      const loginBtn = document.querySelector(".right button");
+      if (loginBtn) {
+        loginBtn.addEventListener("click", () => {
+          alert("Login button clicked. Add validation or auth logic here.");
+        });
+      }
+    }
+  </script>
+</body>
+</html>

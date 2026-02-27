@@ -1,0 +1,118 @@
+[
+    {
+        "name": "Flu",
+        "symptoms": ["fever", "cough", "headache", "fatigue", "body aches", "chills", "sore throat", "runny nose"]
+    },
+    {
+        "name": "Common Cold",
+        "symptoms": ["sneezing", "runny nose", "sore throat", "cough", "mild fever", "congestion"]
+    },
+    {
+        "name": "COVID-19",
+        "symptoms": ["fever", "cough", "shortness of breath", "fatigue", "loss of taste", "loss of smell", "body aches"]
+    },
+    {
+        "name": "Pneumonia",
+        "symptoms": ["fever", "chills", "cough", "difficulty breathing", "chest pain", "fatigue"]
+    },
+    {
+        "name": "Malaria",
+        "symptoms": ["fever", "chills", "sweating", "headache", "nausea", "vomiting", "muscle pain"]
+    },
+    {
+        "name": "Diabetes",
+        "symptoms": ["increased thirst", "frequent urination", "extreme hunger", "unexplained weight loss", "fatigue", "blurred vision"]
+    },
+    {
+        "name": "Hypertension",
+        "symptoms": ["headache", "dizziness", "chest pain", "shortness of breath", "blurred vision", "fatigue"]
+    },
+    {
+        "name": "Asthma",
+        "symptoms": ["shortness of breath", "wheezing", "chest tightness", "coughing, especially at night"]
+    },
+    {
+        "name": "Tuberculosis",
+        "symptoms": ["persistent cough", "weight loss", "fatigue", "fever", "night sweats", "chest pain", "coughing blood"]
+    },
+    {
+        "name": "Dengue Fever",
+        "symptoms": ["high fever", "severe headache", "pain behind the eyes", "joint pain", "muscle pain", "rash", "nausea", "vomiting"]
+    },
+    {
+        "name": "Hepatitis B",
+        "symptoms": ["yellowing of skin and eyes", "dark urine", "fatigue", "nausea", "vomiting", "abdominal pain"]
+    },
+    {
+        "name": "Cholera",
+        "symptoms": ["watery diarrhea", "dehydration", "vomiting", "rapid heart rate", "muscle cramps"]
+    },
+    {
+        "name": "Typhoid Fever",
+        "symptoms": ["high fever", "weakness", "abdominal pain", "constipation", "rash"]
+    },
+    {
+        "name": "Chickenpox",
+        "symptoms": ["itchy rash", "blisters", "fever", "fatigue", "loss of appetite"]
+    },
+    {
+        "name": "Measles",
+        "symptoms": ["rash", "high fever", "cough", "runny nose", "red eyes"]
+    },
+    {
+        "name": "Mumps",
+        "symptoms": ["swollen salivary glands", "fever", "headache", "muscle aches", "fatigue"]
+    },
+    {
+        "name": "Ebola",
+        "symptoms": ["high fever", "severe headache", "muscle pain", "vomiting", "uncontrolled bleeding"]
+    },
+    {
+        "name": "Zika Virus",
+        "symptoms": ["mild fever", "rash", "joint pain", "red eyes", "muscle pain"]
+    },
+    {
+        "name": "Rabies",
+        "symptoms": ["fever", "hallucinations", "excess salivation", "agitation", "difficulty swallowing"]
+    },
+    {
+        "name": "Leprosy",
+        "symptoms": ["skin lesions", "numbness", "muscle weakness", "eye problems"]
+    },
+    {
+        "name": "Gastroesophageal Reflux Disease (GERD)",
+        "symptoms": ["heartburn", "chest pain", "difficulty swallowing", "regurgitation", "sore throat"]
+    },
+    {
+        "name": "Celiac Disease",
+        "symptoms": ["diarrhea", "bloating", "fatigue", "weight loss", "anemia"]
+    },
+    {
+        "name": "Lupus",
+        "symptoms": ["fatigue", "joint pain", "skin rash", "fever", "kidney problems"]
+    },
+    {
+        "name": "Multiple Sclerosis",
+        "symptoms": ["numbness", "vision problems", "fatigue", "dizziness", "coordination issues"]
+    },
+    {
+        "name": "Psoriasis",
+        "symptoms": ["red patches of skin", "scaly skin", "itching", "joint pain"]
+    },
+    {
+        "name": "Anemia",
+        "symptoms": ["fatigue", "weakness", "pale skin", "shortness of breath", "dizziness"]
+    },
+    {
+        "name": "Hyperthyroidism",
+        "symptoms": ["weight loss", "rapid heartbeat", "nervousness", "tremors", "increased appetite"]
+    },
+    {
+        "name": "Hypothyroidism",
+        "symptoms": ["fatigue", "weight gain", "cold intolerance", "dry skin", "slow heart rate"]
+    },
+    {
+        "name": "Gout",
+        "symptoms": ["joint pain", "swelling", "redness", "stiffness"]
+    }
+]

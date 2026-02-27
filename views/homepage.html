@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CareConnect - Your Health, Our Priority</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet"/>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: #f0f8ff;
+      color: #333;
+    }
+
+    header {
+      background-color: #ffffff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: 700;
+      color: #5c7aea;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      color: #5c7aea;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #3d5bbf;
+    }
+
+    .emergency-link {
+      background-color: #ff4d4d;
+      color: white !important;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .emergency-link:hover {
+      background-color: #d93636;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 40px;
+      background: linear-gradient(to right, #e6f7ff, #cce4f6);
+      min-height: 80vh;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .hero-content {
+      max-width: 600px;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #4a63d3;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #555;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      background-color: #5c7aea;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-right: 10px;
+    }
+
+    .btn:hover {
+      background-color: #3d5bbf;
+    }
+
+    .btn-emergency {
+      background-color: #ff4d4d;
+    }
+
+    .btn-emergency:hover {
+      background-color: #d93636;
+    }
+
+    .service-panel {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+      max-width: 380px;
+      text-align: center;
+    }
+
+    .service-panel h2 {
+      font-size: 22px;
+      color: #4a63d3;
+      margin-bottom: 20px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .service-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .service-item:hover {
+      transform: translateY(-4px);
+      background-color: #f3f9ff;
+    }
+
+    .service-item i {
+      font-size: 28px;
+      color: #5c7aea;
+      margin-bottom: 10px;
+    }
+
+    .service-item span {
+      font-weight: 600;
+      font-size: 16px;
+      color: #444;
+    }
+
+    footer {
+      background-color: #e6f7ff;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #555;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">CareConnect</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a class="emergency-link" href="hospital.html">Emergency</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to CareConnect</h1>
+      <p>We help you find the right healthcare services quickly and affordably. Whether you need hospitals, clinics, or emergency support, CareConnect is your trusted health companion.
+        Also CareConnect is a smart solution for hospitals and clinics that are still maintaining records manually. With our digital platform, you can manage patient records, track appointments, and access emergency services — all in one place. Say goodbye to paperwork and hello to simplicity.
+      </p>
+      <button class="btn" onclick="window.location.href='signup.html'">Get Started</button>
+      <button class="btn btn-emergency" onclick="window.location.href='hospital.html'">Emergency</button>
+    </div>
+
+    <div class="service-panel">
+      <h2>Quick Access Services</h2>
+      <div class="services">
+        <div class="service-item" onclick="window.location.href='hospital.html'">
+          <i class="fas fa-hospital"></i>
+          <span>Hospitals</span>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-ambulance"></i>
+          <span>Ambulance</span>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-user-md"></i>
+          <span>Doctors</span>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-pills"></i>
+          <span>Pharmacy</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 CareConnect. All rights reserved.
+  </footer>
+</body>
+</html>

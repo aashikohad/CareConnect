@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Detection</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #cfe2f3, #eef7ff); /* Soft blue gradient */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+            width: 450px;
+            text-align: center;
+            transition: all 0.3s ease-in-out;
+            border: 1px solid #d6e4f0;
+            position: relative;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #34495e;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        label {
+            font-size: 18px;
+            font-weight: 500;
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .symptoms {
+            text-align: left;
+            margin: 10px 0;
+        }
+
+        .symptoms label {
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #b0c4de;
+            border-radius: 10px;
+            background: #f0f8ff;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 10px;
+            background: #5a98d0;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #4a85be;
+        }
+
+        .result {
+            margin-top: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #e74c3c;
+            text-align: center;
+        }
+
+        .search-hospitals {
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .search-hospitals a {
+            display: inline-block;
+            padding: 10px 15px;
+            font-size: 16px;
+            color: white;
+            background: #27ae60;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .search-hospitals a:hover {
+            background: #219150;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Disease Detection</h2>
+        <p>Enter a brief patient's description and CareConnect will provide a list of possible disease diagnoses.</p>
+
+        <label for="symptoms">Select Symptoms:</label>
+        <div class="symptoms">
+            <label><input type="checkbox" value="fever"> Fever</label>
+            <label><input type="checkbox" value="cough"> Cough</label>
+            <label><input type="checkbox" value="fatigue"> Fatigue</label>
+            <label><input type="checkbox" value="headache"> Headache</label>
+            <label><input type="checkbox" value="nausea"> Nausea</label>
+            <!-- Additional Symptoms -->
+            <label><input type="checkbox" value="chills"> Chills</label>
+            <label><input type="checkbox" value="soreThroat"> Sore Throat</label>
+            <label><input type="checkbox" value="shortnessOfBreath"> Shortness of Breath</label>
+            <label><input type="checkbox" value="runnyNose"> Runny Nose</label>
+            <label><input type="checkbox" value="bodyAches"> Body Aches</label>
+        </div>
+
+        <label for="additional-text">Additional Symptoms (Text):</label>
+        <input type="text" id="additional-text" placeholder="Type any other symptoms...">
+
+        <button onclick="detectDisease()">Detect Disease</button>
+        <div class="result" id="result"></div>
+
+        <div class="search-hospitals">
+            <a href="hospital.html">Search Hospitals</a>
+        </div>
+    </div>
+
+    <script>
+        let diseases = [];
+
+        // Fetch disease data from external JSON file (disease.json)
+        fetch('disease.json')
+            .then(response => response.json())
+            .then(data => diseases = data)
+            .catch(error => console.error("Error loading disease data:", error));
+
+        function detectDisease() {
+            // Get selected symptoms from checkboxes
+            const selectedSymptoms = Array.from(document.querySelectorAll('.symptoms input:checked')).map(input => input.value);
+
+            // Get additional symptoms from the text input field
+            const additionalText = document.getElementById('additional-text').value.trim().toLowerCase();
+            const textSymptoms = additionalText.split(',').map(symptom => symptom.trim()).filter(Boolean);
+
+            // Combine both checkbox and text symptoms
+            const allSymptoms = [...selectedSymptoms, ...textSymptoms];
+            document.getElementById('result').innerText = "Processing...";
+
+            setTimeout(() => {
+                let diagnosis = "No specific disease detected. Please consult a doctor.";
+                let possibleDiseases = [];
+
+                diseases.forEach(disease => {
+                    let matchedSymptoms = disease.symptoms.filter(symptom => allSymptoms.includes(symptom));
+                    if (matchedSymptoms.length > 0) {
+                        possibleDiseases.push(`${disease.name} (Matched Symptoms: ${matchedSymptoms.join(', ')})`);
+                    }
+                });
+
+                if (possibleDiseases.length > 0) {
+                    diagnosis = "Possible Diseases: " + possibleDiseases.join(' | ');
+                }
+
+                document.getElementById('result').innerText = diagnosis;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
